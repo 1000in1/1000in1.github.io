@@ -1,1 +1,48 @@
-# whoami
+
+<!DOCTYPE html> 
+<html lang="zh-CN"> 
+<head> 
+<meta charset="utf-8" /> 
+<title>HTML5 canvas line</title> 
+<style tyle="text/css">
+#myCanvas{border:5px solid #ffcc00}
+</style>
+<script> 
+    window.onload = function(){  
+    var canvas = document.getElementByIdx_x_x("myCanvas");  
+    var context = canvas.getContext("2d");  
+    context.beginPath();
+    context.lineCap = "round";
+    context.moveTo(100, 150);  
+    context.lineTo(200, 150); 
+    context.lineTo(10, 10); 
+    context.lineWidth=8;
+    context.strokeStyle = "#ff0000"; // line color
+    context.fillStyle = "#ffcc00"//设置填充颜色
+    context.fill();//填充
+    context.stroke();  
+    context.closePath()
+ 
+    context.save(); //保存状态
+
+    context.beginPath(); // 重设绘图上下文的子路径列表并清空所有的子路径否则设置对上个路径同时生效
+    context.moveTo(200, 100);  
+    context.lineTo(300, 250); 
+    context.lineTo(350, 400); 
+    context.strokeStyle = "#000000"; // line color
+    context.lineWidth=20;
+    context.stroke();
+    context.closePath();
+    context.restore();//恢复状态
+    context.beginPath(); 
+    context.moveTo(400, 100);  
+    context.lineTo(400, 450); 
+    context.lineTo(450, 500); 
+    context.stroke();
+    context.closePath()
+   };  
+</script> 
+<body> 
+<canvas id="myCanvas" width="578" height="200"></canvas> 
+</body> 
+</html>
